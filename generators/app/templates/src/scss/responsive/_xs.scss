@@ -1,0 +1,12 @@
+// 767 -
+@include maxw(xs){
+	// css
+	.text-center-xs{
+		text-align: center;
+	}
+}
+
+// 768 +
+@include minw(xs){
+	// css
+}

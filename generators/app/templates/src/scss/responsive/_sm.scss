@@ -1,0 +1,18 @@
+// 991 -
+@include maxw(sm){
+	// css 
+	.text-center-sm{
+		text-align: center;
+	}
+	.text-right-sm{
+		text-align: right;
+	}
+	.text-left-sm{
+		text-align: left;
+	}
+}
+
+// 992 +
+@include minw(sm){
+	// css 
+}

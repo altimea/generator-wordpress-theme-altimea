@@ -1,0 +1,126 @@
+/**
+ * Classes to help you in your work
+ */
+
+// text 
+.upper{
+    text-transform: uppercase !important;
+}
+.bold{
+	font-weight: bold !important;
+}
+.capitalize{
+    text-transform: capitalize !important;
+}
+.text-normal{
+	text-transform: none !important;
+}
+.text-ellipsis{
+	white-space:nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+// btn helpers
+.btn-square{
+    border-radius: 0 !important;
+}
+.btn-rounded{
+    border-radius: 50px !important;
+}
+
+// font sizes text 12 to 18
+@for $i from 0 through 6 {
+    .fz-#{$i + 12} {
+       font-size: $i + 12px !important;
+    }
+}
+
+// margins helpers
+@mixin margins($sufix, $d){
+	@for $i from 0 through 10 {
+	    .#{$sufix}-#{$i * 5} {
+	        margin-#{$d}: $i * 5px !important;
+	    }
+	}
+}
+
+// margin tops
+@include margins('mt', 'top');
+// margin tops
+@include margins('mb', 'bottom');
+// margin tops
+@include margins('ml', 'left');
+// margin tops
+@include margins('mr', 'right');
+
+// tables
+table{
+	thead{
+		th{
+			cursor: pointer;
+		}
+	}
+}
+.table-middle{
+	tr{
+		th,td{
+			vertical-align: middle !important;
+		}
+	}
+}
+.table-no-border{
+	tr{
+		th,td{
+			border: 0 !important;
+		}
+	}
+}
+.table-xs{
+	tr{
+		th,td{
+			padding: 3px !important;
+		}
+	}
+}
+
+
+// others
+.inline{
+	display: inline-block !important;
+}
+.posr{
+	position: relative;
+}
+.no-resize{
+    resize: none;
+}
+.round{
+    border-radius: 50% !important;
+}
+
+.disable-scroll{
+	overflow: hidden;
+	position: fixed;
+	@include maxw(xs){
+		position: fixed;
+		left: 0;
+		right: 0;
+	}
+}
+
+// responsive helpers
+.hidden-xxs{
+	display: none;
+	@include minw(xxs){
+		display: block;
+	}
+}
+.visible-xxs{
+	display: block;
+	@include minw(xxs){
+		display: none;
+	}
+}
+
+.bd{
+	border: 1px solid #000;
+}

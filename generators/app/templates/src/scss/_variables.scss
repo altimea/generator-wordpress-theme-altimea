@@ -1,0 +1,28 @@
+// ==== CONFIGURATION ==== //
+
+// Set all your configuration variables here!
+$theme-name:               "<%= pretty_name %>";
+$theme-uri:                "<%= uri %>";
+$theme-author:             "Altimea S.A.C.";
+$theme-author-uri:         "http://altimea.com";
+$theme-description:        "<%= description %>";
+$theme-version:            "1.0.0";
+$theme-text-domain:        "<%= name %>-theme";
+$theme-text-domain-path:   "/languages/";
+
+/**
+ * Path to images to read from css
+ */
+$imgs: './img/';
+
+
+/**
+ * Define global colors
+ */
+
+
+/**
+ * Fonts
+ */
+$font-path: './fonts/';
+$icon-font-path: './fonts/bootstrap/';
