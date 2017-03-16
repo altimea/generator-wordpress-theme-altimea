@@ -15,6 +15,8 @@ sudo npm link
 ```
 
 Then generate your new project:
+* Create a folder called **themes-developing/your-theme-name** inside **wp-content**
+* Go inside this new folder and run the generator.
 
 ```bash
 yo wordpress-theme-altimea
