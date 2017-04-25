@@ -97,7 +97,6 @@ module.exports = yeoman.Base.extend({
                 this.templatePath('src/style.css'),
                 this.destinationPath('style.css'), {
                     pretty_name: this.props.themeName
-
                 }
             );
 
