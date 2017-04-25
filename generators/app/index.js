@@ -93,6 +93,14 @@ module.exports = yeoman.Base.extend({
                     name: this.props.themeSlashName
                 }
             );
+            this.fs.copyTpl(
+                this.templatePath('src/style.css'),
+                this.destinationPath('style.css'), {
+                    pretty_name: this.props.themeName
+
+                }
+            );
+
         },
 
 
