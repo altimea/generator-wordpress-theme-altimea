@@ -10,7 +10,7 @@ gulp.task('setup', ['utils-normalize']);
 
 // Build a working copy of the theme
 gulp.task('build', ['images', 'scripts', 'styles', 'theme']);
-gulp.task('build-dist', ['images', 'scripts-dist', 'styles', 'theme']);
+gulp.task('build-dist', ['images', 'scripts-dist', 'styles-dist', 'theme']);
 
 // Dist task chain: wipe -> build -> clean -> copy -> compress images
 // NOTE: this is a resource-intensive task!
