@@ -1,0 +1,37 @@
+.accordion-line{
+	.card{
+		border: 0;
+	}
+	&__head{
+		text-transform: uppercase;
+		a{
+			font-weight: 500;
+			text-decoration: none;
+			display: block;
+			padding: 12px 0 8px;
+			border-bottom: 1px solid;
+			position: relative;
+			&:before{
+				font-weight: 500;
+				font-size: 20px;
+				content: '+';
+				position: absolute;
+				right: 2px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&:not(.collapsed){
+				color: $brand-primary-light;
+				&:before{
+					content: "\2013";
+				}
+			}
+		}
+	}
+	&__body{
+		padding: 10px 5px;
+		a{
+			font-weight: bold;
+		}
+	}
+}

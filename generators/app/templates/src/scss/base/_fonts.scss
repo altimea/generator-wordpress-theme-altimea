@@ -2,5 +2,23 @@
  * Define fonts
  */
 
-// example
-//@include font-face("museo-sans", $font-path + "museo-sans/museosans_100-webfont", 100, $file-formats: eot woff woff2 ttf svg);
+// Example
+// -------------------------------
+// @include font-face("graphik", $font-path + "graphik/graphik-light-webfont", 300, $file-formats: eot woff ttf svg);
+// @include font-face("graphik", $font-path + "graphik/graphik-regular-webfont", 400, $file-formats: eot woff ttf svg);
+// @include font-face("graphik", $font-path + "graphik/graphik-medium-webfont", 500, $file-formats: eot woff ttf svg);
+// @include font-face("graphik", $font-path + "graphik/graphik-semibold-webfont", 600, $file-formats: eot woff ttf svg);
+
+// Polaris
+@include font-face("polaris", $font-path + "polaris/polaris-light-webfont", 300, $file-formats: eot woff ttf);
+@include font-face("polaris", $font-path + "polaris/polaris-book-webfont", 400, $file-formats: eot woff ttf);
+@include font-face("polaris", $font-path + "polaris/polaris-medium-webfont", 500, $file-formats: eot woff ttf);
+@include font-face("polaris", $font-path + "polaris/polaris-bold-webfont", 600, $file-formats: eot woff ttf);
+
+// Lato local
+@include font-face("Lato-local", $font-path + "lato-regular/Lato-Light", 300, $file-formats: ttf);
+@include font-face("Lato-local", $font-path + "lato-regular/Lato-Regular", 400, $file-formats: ttf);
+@include font-face("Lato-local", $font-path + "lato-regular/Lato-Bold", bold, $file-formats: ttf);
+
+// Lbel script
+@include font-face("lbel_script", $font-path + "lbel-script/lbel-script-webfont", 400, $file-formats: ttf);

@@ -6,7 +6,7 @@ var project = '<%= name %>',
     build = '../../themes/' + project + '-dev/',
     dist = '../../themes/' + project + '/',
     assets = './wp-content/',
-    bower = './bower_components/',
+    dev = './node_modules/',
     composer = './vendor/',
     modules = './node_modules/';
 
@@ -53,7 +53,8 @@ module.exports = {
                 src + 'js/functions.js'
             ],
             plugins: [
-                bower + 'jquery/dist/jquery.min.js'
+                dev + 'jquery/dist/jquery.js',
+                dev + 'boostrap/dist/js/bootstrap.js'
             ]
         },
         dest: build + 'js/',
@@ -82,12 +83,12 @@ module.exports = {
         autoprefixer: {browsers: ['> 3%', 'last 2 versions', 'ie 9', 'ios 6', 'android 4']},
         minify: {safe: true},
         rubySass: {
-            loadPath: ['./src/scss', bower, modules],
+            loadPath: ['./src/scss', dev, modules],
             precision: 6,
             sourcemap: true
         },
         libsass: {
-            includePaths: ['./src/scss', bower, modules],
+            includePaths: ['./src/scss', dev, modules],
             precision: 6,
             onError: function (err) {
                 return console.log(err);

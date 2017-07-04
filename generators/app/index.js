@@ -65,12 +65,6 @@ module.exports = yeoman.Base.extend({
                     name: this.props.themeSlashName
                 }
             );
-            this.fs.copyTpl(
-                this.templatePath('config/_bower.json'),
-                this.destinationPath('bower.json'), {
-                    name: this.props.themeSlashName
-                }
-            );
             this.fs.copy(
                 this.templatePath('config/_editorconfig'),
                 this.destinationPath('.editorconfig')

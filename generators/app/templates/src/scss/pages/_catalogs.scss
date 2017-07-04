@@ -1,0 +1,47 @@
+.catalog-card{
+	margin-bottom: 30px;
+	&__caption{
+		position: relative;
+		display: inline-block;
+		text-align: left;
+	}
+	&__title{
+		font-size: 1rem;
+		margin-bottom: 2rem;
+		padding-top: 0.75rem;
+		position: relative;
+		&:before{
+			content: "";
+			width: 80px;
+			border-top: 4px solid;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+	&__share{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		a{
+			font-size: 110%;
+			display: inline-block;
+			text-align: center;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid;
+			&:hover{
+				background: #000;
+				color: #fff;
+				border: 1px solid #000;
+			}
+		}
+	}
+}
+
+.embed-responsive--issuu-mobile{
+	@include maxw(xs){
+		height: 380px;
+	}
+}
