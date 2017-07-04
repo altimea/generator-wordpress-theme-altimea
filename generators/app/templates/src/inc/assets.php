@@ -23,13 +23,18 @@ function theme_enqueue_scripts()
     // You could also load one main bundle on every page with supplementary scripts as needed (e.g. for commenting or a contact page); it's up to you!
 
     // Plugins bundle
-    wp_enqueue_script($script_handle . '-plugins', get_stylesheet_directory_uri() . '/js/' . $ns . '-plugins' . '.js', array(), filemtime(get_template_directory() . '/js/' . $ns . '-plugins' . '.js'), true);
+    $plugins_file_md5 = substr(md5_file(get_stylesheet_directory() . '/js/' . $ns . '-plugins.js'), 0, 10);
+    $plugins_file_name = WP_ENV == 'dev' ? $ns . '-plugins.js' : $ns . '-plugins_' . $plugins_file_md5 . '.js';
+    $plugins_file_handler = get_stylesheet_directory_uri() . '/js/' . $plugins_file_name;
+    wp_enqueue_script($script_handle . '-plugins', $plugins_file_handler, array('jquery'), false, true);
 
     // Load theme-specific JavaScript bundles with versioning based on last modified time; http://www.ericmmartin.com/5-tips-for-using-jquery-with-wordpress/
     // The handle is the same for each bundle since we're only loading one script; if you load others be sure to provide a new handle
     $script_name = '-core';
-    wp_enqueue_script($script_handle . $script_name, get_stylesheet_directory_uri() . '/js/' . $ns . $script_name . '.js', array($script_handle . '-plugins'), filemtime(get_template_directory() . '/js/' . $ns . $script_name . '.js'), true);
-
+    $theme_file_md5 = substr(md5_file(get_stylesheet_directory() . '/js/' . $ns . $script_name . '.js'), 0, 10);
+    $theme_file_name = WP_ENV == 'dev' ? $ns . $script_name . '.js' : $ns . $script_name . '_' . $theme_file_md5 . '.js';
+    $theme_file_handler = get_stylesheet_directory_uri() . '/js/' . $theme_file_name;
+    wp_enqueue_script($script_handle . $script_name, $theme_file_handler, array($script_handle . '-plugins'), false, true);
 
     // Pass variables to JavaScript at runtime; see: http://codex.wordpress.org/Function_Reference/wp_localize_script
     $script_vars = apply_filters('theme_script_vars', $script_vars);
@@ -38,7 +43,14 @@ function theme_enqueue_scripts()
     }
 
     // Register and enqueue our main stylesheet with versioning based on last modified time
-    wp_register_style('theme-style', get_stylesheet_uri(), $dependencies = array(), filemtime(get_template_directory() . '/style.css'));
+    $theme_style_file_md5 = substr(md5_file(get_stylesheet_directory() . '/style.css'), 0, 10);
+    if (WP_ENV == 'dev') {
+      $stylesheet = 'style.css';
+    } else {
+      $stylesheet = 'style_' . $theme_style_file_md5 . '.css';
+    }
+    $theme_style_file_handler = get_stylesheet_directory_uri() . '/' . $stylesheet;
+    wp_register_style('theme-style', $theme_style_file_handler, $dependencies = array(), false);
     wp_enqueue_style('theme-style');
 
 }

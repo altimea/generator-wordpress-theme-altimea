@@ -1,0 +1,13 @@
+.how-to-buy-list{
+	font-family: $lato;
+	font-weight: bold;
+	padding-left: 0;
+	margin-bottom: 30px;
+	li{
+		list-style: none;
+		span{
+			font-size: 140%;
+			color: $brand-primary-light;
+		}
+	}
+}

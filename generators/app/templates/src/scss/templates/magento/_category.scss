@@ -1,0 +1,213 @@
+@mixin category-magento {
+// new category
+// category
+.category-banner{
+	margin-top: -77px;
+}
+
+.category-filters{
+  text-align: right;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  &__box{
+    display: inline-block;
+  }
+}
+
+.filter-select{
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  z-index: 99;
+  &:hover{
+    .filter-select__dropdown{
+      display: block;
+    }
+  }
+  &__name{
+    color: $brand-primary;
+    // font-weight: 600;
+    width: 190px;
+    padding: 8px 12px;
+    border: 1px solid;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    &:before{
+      content: "\25BC";
+      right: 6px;
+      position: absolute;
+    }
+  }
+  &__dropdown{
+    font-size: 10px;
+    line-height: 1.4;
+    padding: 15px;
+    padding-bottom: 45px;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 96%;
+    min-width: 190px;
+    width: 275px;
+    border: 1px solid $brand-primary;
+    display: none;
+    &.is-one{
+      width: auto;
+    }
+    &.is-tree{
+      width: 395px;
+    }
+    &.is-four{
+      width: 515px;
+    }
+    &.is-five{
+      width: 635px;
+    }
+    &-list{
+      width: 120px;
+      padding: 5px 10px;
+      float: left;
+      li{
+        list-style: none;
+        img{
+          margin-top: -5px;
+        }
+        .form-check-input{
+          position: relative;
+          top: 2px;
+        }
+      }
+    }
+    &-cat{
+      text-transform: uppercase;
+      font-size: 11px;
+      position: relative;
+      margin-bottom: 15px;
+      &:before{
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 15px;
+        border-bottom: 1px solid;
+      }
+    }
+  }
+  .btn{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+.products-container{
+  margin-bottom: 2rem;
+  @include maxw(sm){
+    .row{
+      > .col,
+      > [class*=col-]{
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.card-product-mg{
+  height: 95%;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 1rem auto;
+  position: relative;
+  border: 1px solid #f0f0f0;
+  background-color: #ffffff;
+  &:hover{
+  	border-color: #ccc;
+  	background-color: #ffffff;
+  }
+  a{
+    display: block;
+    text-decoration: none;
+  }
+  .btn{
+    width: 140px;
+  }
+  &__img{
+    height: 240px;
+    display: flex;
+    align-items: center;
+    img{
+      max-width: 100%;
+      max-height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  &__type{
+    height: 35px;
+    margin-top: 5px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__name{
+    height: 32px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__description{
+    font-weight: 300;
+    font-size: 12px;
+    min-height: 48px;
+  }
+
+  @include maxw(sm){
+  	background-image: none;
+  	background-color: #fff;
+  	margin: 0;
+    height: 100%;
+    margin-left: -1px;
+    border-bottom: 0;
+  	&:hover{
+  		background-image: none;
+  		background-color: #f9f9f9;
+  	}
+  }
+}
+
+.rating-product{
+  display: inline-block;
+  margin-bottom: 10px;
+  &__wrapper{
+    width: 100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  &__bg,
+  &__current{
+    width: 100px;
+    height: 22px;
+    background-image: url($imgs + 'rating/rating-sprite.png');
+    background-size: 20px auto;
+    background-repeat: repeat;
+    background-position: -1px -19px;
+    z-index: 1;
+  }
+  &__current{
+    background-position: 0 2px;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+  }
+
+}
+
+// end mixin
+}

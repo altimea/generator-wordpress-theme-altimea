@@ -1,0 +1,48 @@
+// form material
+.form-material{
+	.form-group{
+		margin-bottom: 1.4rem;
+		padding-top: 25px;
+		position: relative;
+	}
+	.form-control{
+		height: 30px;
+		padding-left: 2px;
+		padding-right: 2px;
+		color: inherit;
+		background: none;
+		border: 0;
+		border-bottom: 1px solid #999;
+		opacity: 0.7;
+		&:focus,
+		&:valid{
+			opacity: 1;
+		}
+	}
+	label{
+		font-weight: 500;
+		margin-bottom: 0;
+		opacity: 0.5;
+		position: absolute;
+		top: 0;
+		left: 2px;
+		transition: all 0.5s;
+	}
+	@include maxw(xs){
+		.form-group{
+			margin-bottom: 0.7rem;
+		}
+		.form-control{
+			&:focus,
+			&:valid{
+				+ label{
+					font-size: 90%;
+					top: 0;
+				}
+			}
+		}
+		label{
+			top: 30px;
+		}
+	}
+}
