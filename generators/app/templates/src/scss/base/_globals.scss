@@ -16,16 +16,6 @@ html{
 body{
 	height: 101vh;
 	overflow-x: hidden;
-	@if $compiler-hybris {
-		padding-top: 45px;
-		@include minw(md){
-			padding-top: 115px;
-			transition: padding 0.2s;
-			&.scrolling{
-				padding-top: 100px;
-			}
-		}
-	}
 }
 i{
 	display: inline-block;
