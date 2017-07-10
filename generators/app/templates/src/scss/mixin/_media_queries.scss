@@ -10,37 +10,27 @@ $mq-sm: 768px;
 $mq-md: 1042px;
 $mq-lg: 1290px;
 
-$maxw-xs: "(max-width: "#{$mq-xs - 1}")";
-$maxw-sm: "(max-width: "#{$mq-sm - 1}")";
-$maxw-md: "(max-width: "#{$mq-md - 1}")";
-$maxw-lg: "(max-width: "#{$mq-lg - 1}")";
-
-$minw-xs: "(min-width: "#{$mq-xs}")";
-$minw-sm: "(min-width: "#{$mq-sm}")";
-$minw-md: "(min-width: "#{$mq-md}")";
-$minw-lg: "(min-width: "#{$mq-lg}")";
-
 // Down
 // -----------------------------------------
 @mixin maxw($breakpoint) {
 
   @if $breakpoint == xs {
-    @media #{$maxw-xs} {
+    @media (max-width: "#{$mq-xs - 1}") {
       @content;
     }
   }
   @else if $breakpoint == sm {
-    @media #{$maxw-sm} {
+    @media (max-width: "#{$mq-sm - 1}") {
       @content;
     }
   }
   @else if $breakpoint == md {
-    @media #{$maxw-md} {
+    @media (max-width: "#{$mq-md - 1}") {
       @content;
     }
   }
   @else if $breakpoint == lg {
-    @media #{$maxw-lg} {
+    @media (max-width: "#{$mq-lg - 1}") {
       @content;
     }
   }
@@ -56,22 +46,22 @@ $minw-lg: "(min-width: "#{$mq-lg}")";
 @mixin minw($breakpoint) {
 
   @if $breakpoint == xs {
-    @media #{$minw-xs} {
+    @media (min-width: "#{$mq-xs}") {
       @content;
     }
   }
   @else if $breakpoint == sm {
-    @media #{$minw-sm} {
+    @media (min-width: "#{$mq-sm}") {
       @content;
     }
   }
   @else if $breakpoint == md {
-    @media #{$minw-md} {
+    @media (min-width: "#{$mq-md}") {
       @content;
     }
   }
   @else if $breakpoint == lg {
-    @media #{$minw-lg} {
+    @media (min-width: "#{$mq-lg}") {
       @content;
     }
   }

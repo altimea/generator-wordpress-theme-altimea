@@ -4,7 +4,7 @@
 
 // text
 .upper{
-    text-transform: uppercase !important;
+  text-transform: uppercase !important;
 }
 .bold{
 	font-weight: bold !important;
@@ -15,9 +15,9 @@
 
 // font sizes text: from 12 to 18
 @for $i from 0 through 6 {
-    .fz-#{$i + 12} {
-       font-size: $i + 12px !important;
-    }
+  .fz-#{$i + 12} {
+    font-size: $i + 12px !important;
+  }
 }
 
 // others
@@ -29,27 +29,5 @@
 		position: fixed;
 		left: 0;
 		right: 0;
-	}
-}
-
-// default right
-.img-decor{
-	position: relative;
-	&:before{
-		content: "";
-		position: absolute;
-		right: -1px;
-		top: 7px;
-		height: 35px;
-		width: 25px;
-		background-image: url($imgs + 'triangle-decor.png');
-		z-index: 9;
-	}
-	&.left{
-		&:before{
-			right: auto;
-			left: -1px;
-			transform: rotate(180deg);
-		}
 	}
 }

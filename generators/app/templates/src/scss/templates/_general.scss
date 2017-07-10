@@ -1,12 +1,1 @@
 @import "default/_general";
-@import "magento/_general";
-
-@if $compiler-hybris {
-	@include header-hybris();
-	@include footer-hybris();
-} @else {
-	@include header-magento();
-	@include footer-magento();
-	@include category-magento();
-	@include product-magento();
-}
