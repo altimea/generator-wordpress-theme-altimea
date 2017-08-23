@@ -1,8 +1,8 @@
 /* global jsVars*/
 
 // ==== MAIN core ==== //
-(function($) {
-    $(function() {
+( function( $ ) {
+    $( function() {
         console.log('hola');
     });
-}(jQuery));
+}( jQuery ) );

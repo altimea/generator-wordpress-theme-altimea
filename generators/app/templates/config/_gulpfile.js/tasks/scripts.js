@@ -15,10 +15,11 @@ gulp.task('scripts-cleanup', function () {
 
 // Check core scripts for errors
 gulp.task('scripts-lint', function() {
-  return gulp.src(config.lint.src)
-  .pipe(plugins.jshint())
-  .pipe(plugins.jshint.reporter('default')); // No need to pipe this anywhere
+    return gulp.src(config.lint.src)
+        .pipe(plugins.eslint())
+        .pipe(plugins.eslint.format()); // No need to pipe this anywhere
 });
+
 
 // Generate script bundles as defined in the configuration file
 // Adapted from https://github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md

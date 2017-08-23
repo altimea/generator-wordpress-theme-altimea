@@ -78,6 +78,10 @@ module.exports = yeoman.Base.extend({
                 this.destinationPath('.gitignore')
             );
             this.fs.copy(
+                this.templatePath('config/_eslintrc.json'),
+                this.destinationPath('.eslintrc.json')
+            );
+            this.fs.copy(
                 this.templatePath('config/_jshintrc'),
                 this.destinationPath('.jshintrc')
             );
