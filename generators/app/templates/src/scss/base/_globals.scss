@@ -21,25 +21,4 @@ i{
 	display: inline-block;
 }
 
-a{
-	color: #000;
-	&:hover,&:focus{
-		color: #000;
-	}
-}
-
-.hr-line-xs{
-	margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-	position: relative;
-	border-color: transparent;
-	&:before{
-		content: "";
-		width: 50px;
-		border-top: 2px solid #000;
-		position: absolute;
-		bottom: 0;
-	}
-}
-
 // Components global temp

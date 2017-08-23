@@ -17,7 +17,7 @@ module.exports = {
         files: [build + '/**', '!' + build + '/**.map'],
         notify: true,
         open: true,
-        port: 3002,
+        port: 3000,
         proxy: 'local.<%= name %>.com'
     },
 

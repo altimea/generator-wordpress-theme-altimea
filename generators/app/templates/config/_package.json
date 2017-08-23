@@ -37,5 +37,13 @@
     "merge-stream": "^1.0.0",
     "normalize.css": "^5.0.0",
     "require-dir": "^0.3.1"
+  },
+  "scripts": {
+    "postinstall": "gulp setup"
+  },
+  "dependencies": {
+    "bourbon": "^4.3.3",
+    "jquery": "^3.2.1",
+    "bootstrap": "4.0.0-alpha.6"
   }
 }

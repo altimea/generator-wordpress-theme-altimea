@@ -1,106 +1,11 @@
 // booststrap custom
 .btn{
 	cursor: pointer;
-	transition: all 0.2s;
-	&:focus{
-		box-shadow: none;
-		transform: scale(0.95);
-	}
-	&-link{
-		color: #000;
-		text-decoration: underline;
-		&:hover,&:focus{
-			color: #000;
-		}
-	}
-	// provicional reboot boot4
-	&-primary{
-		&:focus{
-			color: #fff;
-		}
-	}
-	&-secondary{
-		&:hover,
-		&:focus{
-			color: #fff;
-			// background-color: transparent;
-		}
-		&.is-inverse{
-			color: #000;
-			background-color: #fff;
-			border-color: #fff;
-			&:hover,&:focus{
-				color: #fff;
-				background-color: #000;
-			}
-		}
-	}
-	&-outline-secondary{
-		&.is-inverse{
-			color: #fff;
-			border-color: #fff;
-			&:hover,&:focus{
-				color: #000;
-				background-color: #fff;
-			}
-		}
-	}
-	&-dark{
-		color: #fff;
-		background-color: $btn-dark;
-	}
-	&-primary-light{
-		color: #fff;
-		background-color: $brand-primary-light;
-		&:hover,&:focus{
-			color: #fff;
-			background-color: darken($brand-primary-light, 10%);
-		}
-		&.is-hover-inverse{
-			&:hover{
-				color: $brand-primary-light;
-				border-color: $brand-primary-light;
-				background-color: #fff;
-			}
-		}
-	}
-	&.is-hover-white{
-		&:hover{
-			color: #000;
-			background-color: #fff;
-		}
-	}
-	&-lg{
-		font-weight: 600;
-	}
-	&-xl{
-		padding: 1.14rem 2.6rem;
-	}
 }
 
 // btn sm
-.btn-group-sm>.btn,
-.btn-sm {
-    padding: .6rem 1rem;
-    font-size: .75rem;
-    line-height: 1;
-}
 
 // forms
-.form-control{
-	&:focus{
-		border-color: $brand-primary-light;
-	}
-}
-
-.form-control-md,
-.input-group-md>.form-control,
-.input-group-md>.input-group-addon,
-.input-group-md>.input-group-btn>.btn{
-	padding: .4rem .6rem;
-    font-size: 12px;
-}
-
 select.form-control:not([size]):not([multiple]){
 	height: auto;
 }
@@ -108,7 +13,6 @@ select.form-control:not([size]):not([multiple]){
 // breadcrumb
 // ------------------------------------------------
 .breadcrumb{
-	text-transform: uppercase;
 	a{
 		color: $brand-primary;
 	}
@@ -118,6 +22,7 @@ select.form-control:not([size]):not([multiple]){
 .close{
 	font-weight: 300;
 }
+
 // Modal center
 // ------------------------------------------------
 .modal{
@@ -146,63 +51,4 @@ select.form-control:not([size]):not([multiple]){
 	&-content{
 		border: 0;
 	}
-}
-
-// custom checkbox glabal
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
-  position: relative;
-  border: none;
-  margin-bottom: -4px;
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  color: inherit;
-  &:focus {
-    outline: none;
-  }
-
-  &:focus:after {
-    border-color: currentColor;
-  }
-
-  &:after {
-    content: "";
-    display: block;
-    width: 18px;
-    height: 18px;
-    margin-top: -2px;
-    margin-right: 5px;
-    border: 1px solid;
-    border-radius: 2px;
-    transition: 240ms;
-  }
-
-  &:checked:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 6px;
-    display: table;
-    width: 6px;
-    height: 12px;
-    border: 2px solid #fff;
-    border-top-width: 0;
-    border-left-width: 0;
-    transform: rotate(45deg);
-  }
-
-  &:checked:after {
-    background-color: currentColor;
-    border-color: currentColor;
-  }
-
-  &:disabled:after {
-    opacity: 0.7;
-  }
-
-  &:disabled:checked:after {
-    opacity: 0.7;
-    border-color: transparent;
-  }
 }
