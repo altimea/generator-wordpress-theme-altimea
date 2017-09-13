@@ -7,6 +7,8 @@ var gulp          = require('gulp')
   , plugins       = require('gulp-load-plugins')({ camelize: true })
   , config        = require('../../gulpconfig').styles
   , autoprefixer  = require('autoprefixer')
+  , md5 = require("gulp-md5")
+  , del = require('del')
   , processors    = [autoprefixer(config.autoprefixer)] // Add additional PostCSS plugins to this array as needed
 ;
 
