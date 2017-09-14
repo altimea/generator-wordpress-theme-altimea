@@ -1,3 +1,9 @@
 {
-  "extends": "wordpress"
+	"extends": "wordpress",
+	"rules": {
+		"yoda": [
+			"error",
+			"never"
+		]
+	}
 }
