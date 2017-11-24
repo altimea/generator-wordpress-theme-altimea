@@ -21,3 +21,42 @@ Then generate your new project:
 ```bash
 yo wordpress-theme-altimea
 ```
+
+## Installation the theme on wordpress
+
+The theme will be called `mynewtheme`
+
+I'm asume the configuration of your main project is already done.
+Our VirtualHost will be: 
+
+	local.mydomain.com
+
+(This is a example config your selft VirtualHost)
+
+01: We meed to create the following directories:
+
+```bash
+cd /var/www/html/wordpress
+mkdir wp-content/themes-developing
+mkdir wp-content/themes-developing/mynewtheme
+cd wp-content/themes-developing/mynewtheme
+```
+
+02: Now execute the yeoman generator:
+
+```bash
+yo wordpress-theme-altimea
+```
+
+03: Config the VirtualHost made for BrowserSync in `thetheme/gulpconfig.js`
+change the (proxy):
+
+	proxy: 'local.mynewtheme.com'
+to 
+	proxy: 'local.mydomain.com'
+
+04: Execute gulp for see the final result
+
+```bash
+gulp
+```
