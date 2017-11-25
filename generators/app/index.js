@@ -102,11 +102,13 @@ module.exports = yeoman.Base.extend({
                 {
                     pretty_name: this.props.themeName,
                     name: this.props.themeSlashName,
-                    name_function: this.props.themeSlashName.replace('-', '_'),
+                    name_function: this.props.themeSlashName.replace(/-/g, '_'),
                     name_class: this.props.className,
                     description: this.props.themeDescription,
                     uri: this.props.themeUri
-                }
+                },
+                {},
+                { globOptions: { dot: true } }
             );
 
             /**
