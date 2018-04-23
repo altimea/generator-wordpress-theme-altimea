@@ -23,35 +23,49 @@ function theme_enqueue_scripts()
     // You could also load one main bundle on every page with supplementary scripts as needed (e.g. for commenting or a contact page); it's up to you!
 
     // Plugins bundle
-    $plugins_file_md5 = substr(md5_file(get_stylesheet_directory() . '/js/' . $ns . '-plugins.js'), 0, 10);
-    $plugins_file_name = WP_ENV == 'dev' ? $ns . '-plugins.js' : $ns . '-plugins_' . $plugins_file_md5 . '.js';
-    $plugins_file_handler = get_stylesheet_directory_uri() . '/js/' . $plugins_file_name;
-    wp_enqueue_script($script_handle . '-plugins', $plugins_file_handler, array('jquery'), false, true);
+    $script_name = '-plugins';
+    $handle_plugin = $script_handle . $script_name;
+    $file_name_out_ext = "{$ns}{$script_name}";
+    $file_name = "{$file_name_out_ext}.js";
+    $plugins_hash_md5 = substr(md5_file(get_stylesheet_directory() . "/js/{$file_name}"), 0, 10);
+    $script_file_name = WP_ENV == 'dev' ? "{$file_name}" : "{$file_name_out_ext}_{$plugins_hash_md5}.js";
+
+    // add if file exist
+    if ( file_exists( get_stylesheet_directory() . "/js/{$script_file_name}" ) === true ) {
+        $theme_file_handler = get_stylesheet_directory_uri() . "/js/{$script_file_name}";
+        wp_enqueue_script($handle_plugin, $theme_file_handler, array('jquery'), false, true);
+    }
 
     // Load theme-specific JavaScript bundles with versioning based on last modified time; http://www.ericmmartin.com/5-tips-for-using-jquery-with-wordpress/
     // The handle is the same for each bundle since we're only loading one script; if you load others be sure to provide a new handle
     $script_name = '-core';
-    $theme_file_md5 = substr(md5_file(get_stylesheet_directory() . '/js/' . $ns . $script_name . '.js'), 0, 10);
-    $theme_file_name = WP_ENV == 'dev' ? $ns . $script_name . '.js' : $ns . $script_name . '_' . $theme_file_md5 . '.js';
-    $theme_file_handler = get_stylesheet_directory_uri() . '/js/' . $theme_file_name;
-    wp_enqueue_script($script_handle . $script_name, $theme_file_handler, array($script_handle . '-plugins'), false, true);
+    $file_name_out_ext = "{$ns}{$script_name}";
+    $file_name = "{$file_name_out_ext}.js";
+    $script_hash_md5 = substr(md5_file(get_stylesheet_directory() . "/js/{$file_name}"), 0, 10);
+    $script_file_name = WP_ENV == 'dev' ? "{$file_name}" : "{$file_name_out_ext}_{$script_hash_md5}.js";
+
+    // add if file exist
+    if ( file_exists( get_stylesheet_directory() . "/js/{$script_file_name}" ) === true ) {
+        $theme_file_handler = get_stylesheet_directory_uri() . "/js/{$script_file_name}";
+        wp_enqueue_script( $script_handle . $script_name, $theme_file_handler, array($handle_plugin), false, true);
+    }
 
     // Pass variables to JavaScript at runtime; see: http://codex.wordpress.org/Function_Reference/wp_localize_script
     $script_vars = apply_filters('theme_script_vars', $script_vars);
     if (!empty($script_vars)) {
-        wp_localize_script($script_handle . '-plugins', 'jsVars', $script_vars);
+        wp_localize_script($handle_plugin, 'jsVars', $script_vars);
     }
 
     // Register and enqueue our main stylesheet with versioning based on last modified time
-    $theme_style_file_md5 = substr(md5_file(get_stylesheet_directory() . '/style.css'), 0, 10);
-    if (WP_ENV == 'dev') {
-      $stylesheet = 'style.css';
-    } else {
-      $stylesheet = 'style_' . $theme_style_file_md5 . '.css';
+    $style_hash_md5 = substr(md5_file(get_stylesheet_directory() . '/style.css'), 0, 10);
+    $style_file_name = WP_ENV == 'dev' ? "style.css" : "style_{$style_hash_md5}.css";
+
+    // add if file exist
+    if ( file_exists( get_stylesheet_directory() . "/$style_file_name" ) === true ) {
+        $theme_style_file_handler = get_stylesheet_directory_uri() . "/{$style_file_name}";
+        wp_register_style('theme-style', $theme_style_file_handler, $dependencies = array(), false);
+        wp_enqueue_style('theme-style');
     }
-    $theme_style_file_handler = get_stylesheet_directory_uri() . '/' . $stylesheet;
-    wp_register_style('theme-style', $theme_style_file_handler, $dependencies = array(), false);
-    wp_enqueue_style('theme-style');
 
 }
 
