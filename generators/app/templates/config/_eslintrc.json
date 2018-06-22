@@ -4,6 +4,7 @@
 		"yoda": [
 			"error",
 			"never"
-		]
+		],
+		"linebreak-style": ["error", "windows"]
 	}
 }
