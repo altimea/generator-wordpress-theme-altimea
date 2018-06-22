@@ -12,18 +12,18 @@ var Analytics = ( function( $ ) {
      * @param {string=} label    - Etiqueta del evento
      */
     var trackEvent = function( name, category, action, label ) {
-        if ( 'undefined' === typeof category ) {
+        if ( typeof category === 'undefined' ) {
             dataLayer.push({
                 'event': name
             });
         } else {
-            if ( 'undefined' === typeof action ) {
+            if ( typeof action === 'undefined' ) {
                 dataLayer.push({
                     'event': name,
                     'category': category
                 });
             } else {
-                if ( 'undefined' === typeof label ) {
+                if ( typeof label === 'undefined' ) {
                     dataLayer.push({
                         'event': name,
                         'category': category,
@@ -66,13 +66,13 @@ var Analytics = ( function( $ ) {
             i,
             l;
 
-        for ( i = -1, l = dataLayer.length; ++i < l && false === repeat; ) {
+        for ( i = -1, l = dataLayer.length; ++i < l && repeat === false; ) {
             if ( dataLayer[i].category === url ) {
                 repeat = true;
             }
         }
 
-        if ( false === repeat ) {
+        if ( repeat === false ) {
             dataLayer.push({
                 'event': 'virtualPage',
                 'category': url
@@ -109,7 +109,7 @@ var Analytics = ( function( $ ) {
     var trackEcommerceClick = function( product ) {
         var list = product.category;
 
-        if ( '' !== product.list ) {
+        if ( product.list !== '' ) {
             list = product.list;
         }
         dataLayer.push({
@@ -201,7 +201,7 @@ var Analytics = ( function( $ ) {
         productImpression: productImpression,
         productClick: productClick,
         virtualEvent: virtualEvent,
-        virtualPage: virtualPage,
+        virtualPage: virtualPage
     };
 
 }( jQuery ) );
