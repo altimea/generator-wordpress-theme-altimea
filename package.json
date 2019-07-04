@@ -21,7 +21,8 @@
   "dependencies": {
     "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
-    "yosay": "^1.0.0"
+    "yosay": "^1.0.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "yeoman-test": "^1.0.0",
@@ -45,8 +46,10 @@
   },
   "repository": "https://github.com/altimea/generator-wordpress-theme-altimea",
   "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "prepublish": "npm run snyk-protect; gulp prepublish",
+    "test": "gulp",
+    "snyk-protect": "snyk protect"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "snyk": true
 }
