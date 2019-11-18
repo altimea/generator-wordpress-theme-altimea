@@ -54,3 +54,28 @@ add_action('after_setup_theme', 'theme_setup', 11);
 $<%= name_class %> = new <%= name_class %>();
 CustomFields::getInstance();
 new ThemeOption();
+
+
+// REORDER (ADD PAGE TO ENABLE THEME)
+if (isset($_GET['activated']) && is_admin()){
+
+	$new_pages = array();
+	$new_pages[0] = array('slug' => 'pagina-demo', 'title' => 'Pagina Demo');
+
+	// 01 page
+	$new_page_template = 'templates/template-demo.php'; //ex. template-custom.php. Leave blank if you don't want a custom page template.
+	$page_check1 = get_page_by_title($new_pages[0]['title']);
+	$new_page = array(
+		'post_type' => 'page',
+		'post_title' => $new_pages[0]['title'],
+		'post_content' => '',
+		'post_status' => 'publish',
+		'post_author' => 1,
+	);
+	if(!isset($page_check1->ID)){
+		$new_page_id = wp_insert_post($new_page);
+		if(!empty($new_page_template)){
+			update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+		}
+	}
+}
