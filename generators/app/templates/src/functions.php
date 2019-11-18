@@ -13,19 +13,24 @@ require_once trailingslashit(get_stylesheet_directory()) . 'functions-config-def
 require_once trailingslashit(get_stylesheet_directory()) . 'inc/assets.php';
 
 // Required class Custom Posts
-//require_once trailingslashit(get_stylesheet_directory()) . 'inc/custom_posts/MyCustomPost.php';
+require_once trailingslashit(get_stylesheet_directory()) . 'inc/custom_posts/MyCustomPost.php';
 
 //Required Geo IP
 //require_once trailingslashit(get_stylesheet_directory()) . 'inc/geoip/GeoIP.php';
 
 // Required class Actions
 //require_once trailingslashit(get_stylesheet_directory()) . 'inc/actions/NavHeadAction.php';
+require_once trailingslashit(get_stylesheet_directory()) . 'inc/actions/AddNavMenu.php';
 
 // Required class Widgets
 //require_once trailingslashit(get_stylesheet_directory()) . 'inc/widgets/MyWidget.php';
 
 // Required class Template
 require_once trailingslashit(get_stylesheet_directory()) . 'inc/<%= name_class %>.php';
+require_once trailingslashit(get_stylesheet_directory()) . 'inc/ThemeOption.php';
+
+// extra need order
+require_once trailingslashit(get_stylesheet_directory()) . 'inc/custom_fields/CustomFields.php';
 
 // Only the bare minimum to get the theme up and running
 function theme_setup()
@@ -47,3 +52,5 @@ function theme_setup()
 add_action('after_setup_theme', 'theme_setup', 11);
 
 $<%= name_class %> = new <%= name_class %>();
+CustomFields::getInstance();
+new ThemeOption();

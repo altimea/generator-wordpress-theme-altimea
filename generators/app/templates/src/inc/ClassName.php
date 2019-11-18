@@ -20,6 +20,9 @@ class <%= name_class %>
         add_action('widgets_init', [$this, 'themeLoadSidebars']);
         add_action('widgets_init', [$this, 'themeLoadWidgets']);
         add_filter('upload_mimes', [$this, 'setMimeTypes']);
+
+        //add custompost
+        // add_action('init', array(new MyCustomPost(), 'register_post_type'));
     }
 
     /**
