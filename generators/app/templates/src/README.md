@@ -58,3 +58,17 @@ Use BEM for write css: https://css-tricks.com/bem-101/
     }
 }
 ```
+
+
+#### Create translate file .pot, .po, .mo
+
+Create file with generator gulp. you shuld be execute to taks located in: gulpfile.js/tasks/pot.js
+
+	gulp potfilesgen
+
+The generated files on(languages directory) must be renamed by executing the command.
+File example: translate to *English-UnitedStates*
+
+	{theme-name}-en_US.po  => en_US.po
+	{theme-name}-en_US.mo  => en_US.mo
+
