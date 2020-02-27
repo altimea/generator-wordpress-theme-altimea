@@ -79,3 +79,19 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
+
+/**
+* Counter post EXAMPLE ADD NEW VARIABLE globals
+**/
+/*
+function theme_update_script_vars_counter_post($script_vars = array())
+{
+	$count_posts = wp_count_posts();
+
+    return array_merge($script_vars, array(
+        'countPosts' => $count_posts->publish
+    ));
+}
+
+add_filter('theme_script_vars', 'theme_update_script_vars_counter_post');
+*/
