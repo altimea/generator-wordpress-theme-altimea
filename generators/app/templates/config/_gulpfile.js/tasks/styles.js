@@ -33,7 +33,6 @@ gulp.task('styles-libsass', function() {
   .pipe(plugins.sourcemaps.init())
   .pipe(plugins.sass(config.libsass))
   .pipe(plugins.postcss(processors))
-  .pipe(plugins.cssnano(config.minify))
   .pipe(plugins.sourcemaps.write('./')) // Writes an external sourcemap
   .pipe(gulp.dest(config.build.dest))
   .pipe(md5(10))

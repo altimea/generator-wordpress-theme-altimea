@@ -1,11 +1,5 @@
-<?php
-/* Template Name: Demo */
-
-get_header();
-
-?>
+<?php /* Template Name: Demo */ ?>
+<? get_header(); ?>
 
 
-<?php
-get_footer();
-?>
+<?php get_footer(); ?>

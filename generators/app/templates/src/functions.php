@@ -13,19 +13,24 @@ require_once trailingslashit(get_stylesheet_directory()) . 'functions-config-def
 require_once trailingslashit(get_stylesheet_directory()) . 'inc/assets.php';
 
 // Required class Custom Posts
-//require_once trailingslashit(get_stylesheet_directory()) . 'inc/custom_posts/MyCustomPost.php';
+require_once trailingslashit(get_stylesheet_directory()) . 'inc/custom_posts/MyCustomPost.php';
 
 //Required Geo IP
 //require_once trailingslashit(get_stylesheet_directory()) . 'inc/geoip/GeoIP.php';
 
 // Required class Actions
 //require_once trailingslashit(get_stylesheet_directory()) . 'inc/actions/NavHeadAction.php';
+require_once trailingslashit(get_stylesheet_directory()) . 'inc/actions/AddNavMenu.php';
 
 // Required class Widgets
 //require_once trailingslashit(get_stylesheet_directory()) . 'inc/widgets/MyWidget.php';
 
 // Required class Template
 require_once trailingslashit(get_stylesheet_directory()) . 'inc/<%= name_class %>.php';
+require_once trailingslashit(get_stylesheet_directory()) . 'inc/ThemeOption.php';
+
+// extra need order
+require_once trailingslashit(get_stylesheet_directory()) . 'inc/custom_fields/CustomFields.php';
 
 // Only the bare minimum to get the theme up and running
 function theme_setup()
@@ -47,3 +52,46 @@ function theme_setup()
 add_action('after_setup_theme', 'theme_setup', 11);
 
 $<%= name_class %> = new <%= name_class %>();
+CustomFields::getInstance();
+new ThemeOption();
+
+
+// REORDER (ADD PAGE TO ENABLE THEME)
+if (isset($_GET['activated']) && is_admin()){
+
+	$new_pages = array();
+	$new_pages[0] = array('slug' => 'pagina-demo', 'title' => 'Pagina Demo');
+
+	// 01 page
+	$new_page_template = 'templates/template-demo.php'; //ex. template-custom.php. Leave blank if you don't want a custom page template.
+	$page_check1 = get_page_by_title($new_pages[0]['title']);
+	$new_page = array(
+		'post_type' => 'page',
+		'post_title' => $new_pages[0]['title'],
+		'post_content' => '',
+		'post_status' => 'publish',
+		'post_author' => 1,
+	);
+	if(!isset($page_check1->ID)){
+		$new_page_id = wp_insert_post($new_page);
+		if(!empty($new_page_template)){
+			update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+		}
+	}
+}
+
+/**
+* Counter post EXAMPLE ADD NEW VARIABLE globals
+**/
+/*
+function theme_update_script_vars_counter_post($script_vars = array())
+{
+	$count_posts = wp_count_posts();
+
+    return array_merge($script_vars, array(
+        'countPosts' => $count_posts->publish
+    ));
+}
+
+add_filter('theme_script_vars', 'theme_update_script_vars_counter_post');
+*/

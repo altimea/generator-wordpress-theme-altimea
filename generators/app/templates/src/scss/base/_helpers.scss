@@ -3,21 +3,8 @@
  */
 
 // text
-.upper{
-  text-transform: uppercase !important;
-}
-.bold{
-	font-weight: bold !important;
-}
 .bolder{
 	font-weight: bolder;
-}
-
-// font sizes text: from 12 to 18
-@for $i from 0 through 6 {
-  .fz-#{$i + 12} {
-    font-size: $i + 12px !important;
-  }
 }
 
 // others
@@ -25,7 +12,7 @@
 	overflow: hidden;
 	position: fixed;
 	// tablet and mobile
-	@include maxw(sm){
+	@include media-breakpoint-down(sm){
 		position: fixed;
 		left: 0;
 		right: 0;

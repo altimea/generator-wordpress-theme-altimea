@@ -58,7 +58,8 @@ gulp.task('scripts-minify', ['scripts-bundle'], function(){
   .pipe(plumber())
   .pipe(md5(10))
   .pipe(plugins.sourcemaps.init())
-  .pipe(plugins.uglify(config.minify.uglify))
+  .pipe(babel({"presets": [require('babel-preset-es2015')]}))
+  // .pipe(plugins.uglify(config.minify.uglify))
   .pipe(plugins.sourcemaps.write('./'))
   .pipe(gulp.dest(config.minify.dest));
 });
@@ -68,6 +69,7 @@ gulp.task('scripts-minify-dist', ['scripts-bundle'], function(){
   .pipe(plumber())
   .pipe(md5(10))
   .pipe(plugins.sourcemaps.init())
+  .pipe(babel({"presets": [require('babel-preset-es2015')]}))
   .pipe(plugins.uglify(config.minify.uglify_dist))
   .pipe(plugins.sourcemaps.write('./'))
   .pipe(gulp.dest(config.minify.dest));

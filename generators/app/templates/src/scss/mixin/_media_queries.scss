@@ -1,5 +1,6 @@
 // Mixin media all
 
+// Up screems bootstrap 4
 // sm: 576px,
 // md: 768px,
 // lg: 1042px,
@@ -15,10 +16,10 @@ $mq-lg: 1290px;
 @mixin maxw($breakpoint) {
 
   @if $breakpoint == xs {
-    @media (max-width: "#{$mq-xs - 1}") {
-      @content;
-    }
-  }
+		@media (max-width: "#{$mq-xs - 1}") {
+			@content;
+		}
+	}
   @else if $breakpoint == sm {
     @media (max-width: "#{$mq-sm - 1}") {
       @content;

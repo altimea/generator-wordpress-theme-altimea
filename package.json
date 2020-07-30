@@ -1,12 +1,12 @@
 {
   "name": "generator-wordpress-theme-altimea",
   "version": "1.0.0",
-  "description": "Generador para estructura de plantilla en WordPress para los proyectos de Altimea",
+  "description": "Generador para estructura de plantilla en WordPress para los proyectos Rapidos",
   "homepage": "http://www.altimea.com",
   "author": {
-    "name": "Alexandre Filgueira",
-    "email": "hola@alexfilgueira.com",
-    "url": "http://www.alexfilgueira.com"
+    "name": "Anibal Copitan",
+    "email": "anibal@pprios.com",
+    "url": "https://github.com/enlacee"
   },
   "files": [
     "generators"
